@@ -1,0 +1,115 @@
+@use "../abstracts" as *;
+@use "../common" as *;
+
+//<MENU>=======================================
+.menu {
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile) {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			left: -100%;
+			top: 0;
+			overflow: auto;
+			padding: rems(50) rems(15) rems(15) rems(30);
+			transition: left 0.3s;
+			&::before {
+				content: "";
+				position: fixed;
+				width: 100%;
+				height: rems(70);
+				left: -100%;
+				top: 0;
+				transition: left 0.3s;
+				z-index: 2;
+			}
+			.menu-open & {
+				left: 0;
+				&::before {
+					left: 0;
+				}
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		align-items: center;
+		@include AV("column-gap", 90, 10);
+		@media (max-width: $mobile) {
+		}
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		@extend %text-g_16_20_700;
+		@media (max-width: $mobile) {
+		}
+	}
+}
+//</MENU>=======================================
+
+//<BURGER>=======================================
+.icon-menu {
+	span,
+	&::before,
+	&::after {
+		content: "";
+		width: 100%;
+		flex: 0 0 rems(3);
+		border-radius: rems(2);
+		background-color: $mainTextCol;
+		transform: translate(0%, 0%) rotate(0deg);
+		transition: all 0.3s ease 0s;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			span,
+			&::before,
+			&::after {
+				background-color: $green;
+			}
+		}
+	}
+	@media (max-width: $tablet) {
+		span,
+		&::before,
+		&::after {
+			content: "";
+		}
+		&::before {
+		}
+		&::after {
+		}
+		span {
+		}
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		//<MENU-OPEN>=================================
+		.menu-open & {
+			justify-content: center;
+			align-items: center;
+			span {
+				opacity: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				transform: translate(0%, 75%) rotate(-45deg);
+			}
+			&::after {
+				transform: translate(0%, -75%) rotate(45deg);
+			}
+		}
+		//</MENU-OPEN>=================================
+	}
+}
+//</BURGER>=================================

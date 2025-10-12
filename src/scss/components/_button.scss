@@ -1,0 +1,99 @@
+@use "../abstracts" as *;
+// @use "../common" as *;
+
+//<Стили для кнопок>=================================
+.button {
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	display: flex;
+	border-radius: rems(10);
+	background-color: $blue;
+	color: $white;
+	font-family: Gilroy;
+	font-weight: 600;
+	white-space: nowrap;
+	box-shadow: 0 4px 22.5px 0 rgba(169, 165, 165, 0.1);
+	min-width: rems(260);
+	margin: 0 auto;
+	font-size: rems(16);
+	padding-top: rems(20);
+	padding-bottom: rems(20);
+	transition: opacity 0.3s ease 0s;
+	// @include AV("padding-top", 20, 10);
+	// @include AV("padding-bottom", 20, 10);
+	@include AV("padding-left", 50, 20);
+	@include AV("padding-right", 50, 20);
+	// @include AV("font-size", 16, 14);
+	@media (min-width: $mobileBig) {
+		font-weight: 700;
+	}
+	&-ico {
+		@include AV("padding", 15, 10);
+		&::before {
+			content: "";
+			// position: absolute;
+			width: rems(16);
+			height: rems(16);
+			// top: 50%;
+			// left: 50%;
+			// transform: translate(-50%, -50%);
+			// z-index: 3;
+		}
+	}
+	&-green {
+		background-color: $green;
+	}
+	@media (max-width: $tablet) {
+		&-telephone {
+			@extend %btn-tablet-media;
+			padding: 0;
+			&::before {
+				display: block;
+			}
+		}
+		&-checkout {
+			@extend %btn-tablet-media;
+		}
+		%btn-tablet-media {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: rems(33);
+			height: rems(33);
+			background-color: $blue;
+			border-radius: rems(8);
+		}
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			opacity: 0.6;
+		}
+	}
+}
+%btn-tablet {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: rems(33);
+	height: rems(33);
+	background-color: $blue;
+	border-radius: rems(8);
+}
+.btn-checkout {
+	@extend %btn-tablet;
+}
+%btn-mini {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: rems(40);
+	height: rems(40);
+	background-color: $white;
+	border-radius: rems(8);
+}
+.btn-checkout-big {
+	@extend %btn-mini;
+}
+
+//<Стили для кнопок>=================================
