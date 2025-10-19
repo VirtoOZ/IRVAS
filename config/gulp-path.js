@@ -3,7 +3,8 @@ import * as nodePath from 'path';
 const rootFolder = nodePath.basename(nodePath.resolve());
 
 // Пути к папке с исходниками и папке с результатом
-const buildFolder = `./dist`;
+const buildFolder = `C:/OSPanel/home/irvas.local/public/`;
+// const buildFolder = `./dist`;
 const srcFolder = `./src`;
 
 // Пути к папкам и файлам проекта
@@ -32,9 +33,9 @@ export const pathToFile = {
 	rootFolder: rootFolder,
 	srcFolder: srcFolder,
 	// Путь к нужной папке на удаленном сервере.
-	ftp: ``
+	// ftp: ``
 	//Пример: загрузить в папку 2022 далее в папку с названием проекта
-	// ftp: `2022/${rootFolder}`
+	// ftp: `C:/OSPanel/home/irvas.local/public`
 };
 
 // Настройка FTP соединения

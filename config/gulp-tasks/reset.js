@@ -1,5 +1,6 @@
 import { deleteAsync } from "del";
 
 export const reset = () => {
-	return deleteAsync(app.path.clean);
+	return deleteAsync(app.path.clean, { force: true });
+	// return deleteAsync(app.path.clean);
 }

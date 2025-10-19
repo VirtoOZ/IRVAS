@@ -35,7 +35,7 @@ export default function ({ types: t }) {
 						t.callExpression(
 							t.memberExpression(srcExpression, t.identifier('replace')),
 							[
-								t.regExpLiteral('\\.(png|jpe?g)$', 'i'),
+								t.regExpLiteral('\\.(png|jpe?g|gif)$', 'i'),
 								t.stringLiteral('.webp')
 							]
 						)

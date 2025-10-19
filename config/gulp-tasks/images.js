@@ -1,7 +1,7 @@
 import webp from "gulp-webp";
 import imagemin from "gulp-imagemin";
 
-export const WebP = () => {
+const WebP = () => {
 	return app.gulp.src(app.path.src.images, { encoding: false })
 		.pipe(app.plugins.plumber(
 			app.plugins.notify.onError({
@@ -14,9 +14,12 @@ export const WebP = () => {
 		.pipe(app.plugins.if(app.isWebP,
 			app.gulp.dest(app.path.build.images)
 		))
+		//
+		.pipe(app.gulp.src(app.path.src.images))
+		.pipe(app.gulp.dest(app.path.build.images));
 };
 
-export const imagesOptimize = () => {
+const imagesOptimize = () => {
 	return app.gulp.src(app.path.src.images, { encoding: false })
 		.pipe(app.plugins.plumber(
 			app.plugins.notify.onError({
@@ -36,7 +39,7 @@ export const imagesOptimize = () => {
 		.pipe(app.gulp.dest(app.path.build.images))
 };
 
-export const copySvg = () => {
+const copySvg = () => {
 	return app.gulp.src(app.path.src.svg)
 		.pipe(app.plugins.plumber(
 			app.plugins.notify.onError({
@@ -47,3 +50,5 @@ export const copySvg = () => {
 		.pipe(app.plugins.newer(app.path.build.images))
 		.pipe(app.gulp.dest(app.path.build.images));
 };
+
+export { WebP, copySvg, imagesOptimize };
